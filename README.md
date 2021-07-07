@@ -1,7 +1,6 @@
-# activities
+# Guess the Word
 
-Template for activity repos
+*Participant instructions go here.*
 
-The README.md file is where participant instructions go.
 See [this Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 for Markdown help.
