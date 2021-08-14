@@ -1,4 +1,13 @@
+## =============================
+##     IMPORT STATEMENT(S)
+## =============================
+
 import random
+
+## =============================
+##          VARIABLES
+## =============================
+
 
 guesses_left = 9
 
@@ -12,6 +21,10 @@ symbol = "🌞"
 
 guessed_word_correctly = False
 
+## =============================
+## STRING MANIPULATION FUNCTIONS
+## =============================
+
 def update_clue(guessed_letter, secret_word):
     index = 0
     while index < len(secret_word):
@@ -22,6 +35,10 @@ def update_clue(guessed_letter, secret_word):
 def listToString(mylist):
     cluestring = ' '
     return cluestring.join(mylist)
+
+## =============================
+##       GAME PLAY CODE
+## =============================
 
 print("Guess the word associated with Summer! ")
 

@@ -86,17 +86,24 @@ if guess == secret_word:
 
 ### Step 6: Check the guess Part 2
 
+- Be sure to indent this code so that it is part of the game play code ("while loop")
+- Is the guess a letter in the secret word?
+  - If yes, use the function we created to update the clue
+  - If no, lower the guesses left
+
+```python
 if guess in secret_word:
-	update_clue(guess, secret_word, clue)
+    update_clue(guess, secret_word, clue)
 else:
-	print('Incorrect. You lose a life')
-	guesses_left = guesses_left - 1
- 
-⧫ Be sure to indent this code so it is part of the main program (while loop)
-⧫ Is the guess a letter in the secret word?
--        If yes, use the function we created to update the clue
--        If no, lower the guesses left
-Step 7: Update game status
+    print('Incorrect. You lose a life')
+    guesses_left = guesses_left - 1
+```
+
+### Step 7: Update game status
+
+- If following along using the sample code, don’t indent this section
+  - It will only run after the user is done guessing (outside of the "while loop")
+- Tell the user if they won or lost
 
 ```python
 if guessed_word_correctly:
@@ -105,16 +112,14 @@ else:
     print('You lost! The secret word was ' + secret_word)
 ```
 
-- Don’t indent this section
-- Tell the user if they won or lost
-
- Other things to try:
+### Other things to try
 
 - Different words
 - Different word lengths
 - Use a different symbol
 - Change the number of guesses
- 
-Notes:
 
-This lesson was based on Nine Lives from Coding Projects in Python and borrowed from Lakewood Girls Who Code.
+### Notes
+
+This lesson was based on Nine Lives from Coding Projects in Python
+and borrowed from [Lakewood Girls Who Code](https://sites.google.com/view/gwc-lpl).
