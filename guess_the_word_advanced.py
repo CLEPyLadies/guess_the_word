@@ -1,3 +1,4 @@
+import argparse
 import random
 from typing import Iterable, Optional
 
@@ -96,8 +97,13 @@ class GuessingGame:
 
 def main():
     '''Controller'''
-    print('Let\'s make a game!')
-    game_play = GuessingGame(9, SUMMER_WORDS)
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--n_guesses', type=int, default=9)
+    args = parser.parse_args()
+
+    print(f'Let\'s make a game! You will get {args.n_guesses} guesses.')
+    game_play = GuessingGame(args.n_guesses, SUMMER_WORDS)
     game_play.set_secret_word()
     while game_play.is_in_progress:
         game_play.take_a_turn()
