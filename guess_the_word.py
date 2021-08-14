@@ -45,5 +45,5 @@ if guessed_word_correctly:
 else:
     print("You lose! Womp, womp.  The secret word was " + secret_word)
 
-
-
+if __name__ == '__main__':
+    pass
