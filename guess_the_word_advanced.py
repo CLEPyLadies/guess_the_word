@@ -14,10 +14,12 @@ class GuessingGame:
         ):
         self.guesses_left = n_guesses
         self.word_bank = word_bank
-        self.guesses_symbol = "🤔"
+        self.guesses_symbol = "🏝"
         # These will be populated later
         self.secret_word = ''
         self.clue = ''
+        self.clue_symbol = "🤔"
+        self.guessed_so_far = set()
         self.player_won = None
 
     @property
@@ -42,7 +44,7 @@ class GuessingGame:
 
         for char in self.secret_word:
             if char.isalpha():
-                self.clue += self.guesses_symbol
+                self.clue += self.clue_symbol
             else:
                 self.clue += char
         print(f'Initial clue is {self.clue}')
@@ -64,12 +66,20 @@ class GuessingGame:
 
         guessed_word = guess == self.secret_word
         completed_clue = self.clue == self.secret_word
+
         if guessed_word or completed_clue:
             self.player_won = True
             return
+        if guess in self.secret_word:
+            return
 
-        print('Incorrect. You lose a life!')
+        if guess in self.guessed_so_far:
+            print('You\'ve already guessed that! Try again.')
+            return
+
+        print('\tIncorrect. You lose a life!')
         self.guesses_left -= 1
+        self.guessed_so_far.add(guess)
         return
     
     def take_a_turn(self):
@@ -83,6 +93,7 @@ class GuessingGame:
 
     def game_over(self):
         '''Game over message'''
+
         if self.player_won:
             print(
                 "You win! The secret word was ",
@@ -100,11 +111,12 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--n_guesses', type=int, default=9)
+    parser.add_argument('--custom_secret', type=str)
     args = parser.parse_args()
 
     print(f'Let\'s make a game! You will get {args.n_guesses} guesses.')
     game_play = GuessingGame(args.n_guesses, SUMMER_WORDS)
-    game_play.set_secret_word()
+    game_play.set_secret_word(secret=args.custom_secret)
     while game_play.is_in_progress:
         game_play.take_a_turn()
     game_play.game_over()
