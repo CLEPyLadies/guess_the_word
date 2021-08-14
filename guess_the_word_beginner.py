@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
 import random
 
 guesses_left = 9
@@ -24,7 +18,7 @@ def update_clue(guessed_letter, secret_word):
         if guessed_letter == secret_word[index]:
             clue[index] = guessed_letter
         index = index + 1
-    
+
 def listToString(mylist):
     cluestring = ' '
     return cluestring.join(mylist)
@@ -38,10 +32,10 @@ while guesses_left > 0:
     if guess == secret_word:
         guessed_word_correctly = True
         break
-    
+
     if guess in secret_word:
         update_clue(guess, secret_word)
-        
+
     else:
         print('Incorrect. You lose a life!')
         guesses_left = guesses_left - 1
@@ -50,6 +44,3 @@ if guessed_word_correctly:
     print("You win!  The secret word was " + secret_word)
 else:
     print("You lose! Womp, womp.  The secret word was " + secret_word)
-
-
-
