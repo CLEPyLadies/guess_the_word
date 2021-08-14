@@ -22,10 +22,10 @@ GUESSES_SYMBOL = "🌞"
 
 
 def update_clue(
-    clue: str,
+    clue: List[str],
     secret_word: str,
     guessed_letter: str
-    ) -> str:
+    ) -> List[str]:
     '''Update clue with correctly guessed letters'''
 
     # The version we prefer
