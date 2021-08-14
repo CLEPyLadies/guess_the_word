@@ -4,7 +4,7 @@
 import random
 
 # Next we will declare the variable that holds the number of guesses or
-#chances that our player has to correctly guess the word
+# chances that our player has to correctly guess the word
 # Put your code in the spaces between comments
 # ============START CODING==============
 
