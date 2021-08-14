@@ -6,6 +6,8 @@ We are running this program on [pythonanywhere.com](pythonanywhere.com)
 
 ## Code Helps
 
+### Step 0: `import random`
+
 `import random`
 
 - random is a library that lets the computer make choices for us
